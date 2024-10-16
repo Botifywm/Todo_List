@@ -230,6 +230,10 @@ body {
     justify-items: start;
 }
 
+.title {
+    align-self: center;
+}
+
 .notes {
     grid-column: 2/3;
 
@@ -238,7 +242,7 @@ body {
 
 .dueDate {
     color: #ff8364;
-    align-self: end;
+    align-self: center;
 }
 
 .editLogo {
@@ -255,7 +259,7 @@ body {
 
 .dueDateWrapper svg {
     height: 1.2rem;
-    align-self: end;
+    align-self: center;
 }
 
 .wrapperTodo:hover .editLogo {
@@ -408,6 +412,7 @@ button[role="checkbox"] {
     height: 1.5rem;
     border-radius: 25%;
     position: relative; /* Needed for positioning the pseudo-element */
+    align-self: center;
 }
 
 button[role="checkbox"]::after {
