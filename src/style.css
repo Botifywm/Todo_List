@@ -1,0 +1,490 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Playwrite+DE+Grund:wght@100..400&family=Space+Grotesk:wght@300..700&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    font: "EB Garamond", serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 14rem 1fr;
+    height: 100vh;
+}
+
+#placeHolder {
+    display: none;
+}
+
+
+/* MENUBAR*/
+.menubarContainer {
+    display: grid;
+    grid-template-rows: 0.5fr 1fr;
+    background-color: #fcf4d9;
+    padding-left: 0.5rem;
+}
+
+
+/* NON-PROJECTS */
+.nonProject {
+    display: grid;
+    grid-template-rows: 3rem auto 10rem;
+    gap: 1.5rem;
+}
+
+.nonProjectNav {
+    display: grid;
+    grid-template-rows: repeat(4, 2rem);
+}
+
+.menuAdd span, .nonProjectNav span {
+    align-self: center;
+}
+
+.mainLogo{
+    font-size: 2rem;
+    font-family: "Playwrite DE Grund", cursive;
+    color: #d55b3e;
+    font-weight: bold;
+}
+
+
+.all, .today, .overdue, .completed, .menuAdd {
+    display: grid;
+    grid-template-columns: 2rem 1fr 2rem;
+}
+
+.all, .today, .overdue, .completed, .menuAdd:hover {
+    cursor: pointer;
+}
+
+.menuLogo {
+    height: 70%;
+    align-self: center;
+}
+
+.menuAdd .menuLogo {
+    height: 1.7rem;
+    align-self: center;
+}
+
+/* PROJECTS */
+/* .renameProjForm {
+} */
+
+.projLabel .hiddenRenameForm {
+    display: none;
+}
+
+.projectHeader {
+    font-family: "Playwrite DE Grund", cursive;
+    font-size: 1.5rem;
+    color: #d55b3e;
+    margin-bottom: 1rem;
+}
+
+.svgProj svg{
+    height: 1.7rem;
+    align-self: center;
+}
+
+.projLabelText {
+    align-self: center;
+}
+
+.projName {
+    display: grid;
+}
+
+.projRename {
+    display: none;
+}
+
+.projLabel {
+    display: grid;
+    grid-template-columns: 1fr 2rem;
+}
+
+.projLabel:hover {
+    cursor: pointer;
+}
+
+.projSelector {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+}
+
+
+#createProject {
+    border: none;
+    background-color: transparent;
+    color: #00aaa0;
+}
+
+
+#projectDialog {
+    display: none;
+}
+
+
+/* PROJECT - EDIT NAME & DELETE */
+.projEditBtn svg {
+    height: 0.8rem;
+    display: none;
+}
+
+.projAttribute {
+    align-self: center;
+    position: relative;
+}
+
+.projLabel:hover .count {
+    display: none;
+}
+
+.projLabel:hover .projEditBtn svg{
+    display: grid;
+}
+
+.projEditOptions {
+    display: none;
+}
+
+.showEditOpt {
+    display: grid;
+    position: absolute;
+    top: 120;
+    left: -100%;
+    z-index: 1;
+    background-color: #f8ecc3;
+    box-shadow: 2px 2px 2px darkgrey;
+    color:#d55b3e;
+    padding: 0.3rem;
+}
+
+
+/* MAIN DISPLAY - TOP */
+.completeHidden {
+    display: none;
+}
+
+.mainDisplay {
+    display: grid;
+    grid-template-rows: minmax(8rem, auto) auto 1fr;
+    grid-template-columns: 0.4fr 1fr 0.4fr;
+}
+
+.topHeader {
+    grid-column: 2/3;
+    grid-row: 1/2;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 50px;
+    align-items: end;
+    border-bottom: 1.5px solid #00aaa0;
+    padding-bottom: 0.5rem;
+}
+
+#addIcon {
+    justify-self: end;
+    height: 25%;
+}
+
+/* MAIN DISPLAY - BOTTOM */
+.todoList {
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+.wrapperTodo {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    grid-template-rows: 1fr auto 1fr;
+    padding: 1rem 0;
+}
+
+.outerWrapper {
+    border-bottom: 1px solid #8ed2c9;
+}
+
+.outerWrapper:last-child {
+    border-bottom: none;
+}
+
+
+.project {
+    border-left: 1px solid black;
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+    color: #00aaa0;
+    font-size: 0.8rem;
+}
+
+.titleNcheckboxSec {
+    display: grid;
+    grid-column: 1 / 3;
+    grid-template-columns: 3rem 1fr 0.1fr;
+    justify-items: start;
+}
+
+.notes {
+    grid-column: 2/3;
+
+    font-style: italic;
+}
+
+.dueDate {
+    color: #ff8364;
+    align-self: end;
+}
+
+.editLogo {
+    visibility: hidden;
+    justify-self: end;
+    width: 40%;
+}
+
+.dueDateWrapper {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+}
+
+.dueDateWrapper svg {
+    height: 1.2rem;
+    align-self: end;
+}
+
+.wrapperTodo:hover .editLogo {
+    visibility: visible;
+}
+
+/* TODO FORM - MENU */
+.formMenu {
+    grid-column: 1/4;
+
+    display: grid;
+    padding-right: 0.5rem;
+}
+
+.addTodoForm {
+    /* display: none; */
+    gap: 0.2rem;
+}
+
+.ctrl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.ctrl .addTodo {
+    background-color: #d55b3e;
+    color: #fcf4d9;
+}
+
+.todoDetails {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.formMenu .notesInput {
+    display: grid;
+    min-height: 4rem;
+}
+
+/* TODO FORM - FORM MAIN */
+.formMain {
+    grid-column: 2/3;
+    grid-row: 2/3;
+
+    display: grid;
+    background-color: #fcf4d9;
+}
+
+.formMain .addTodoForm {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.formMain .todoDetails {
+    grid-column: 1/3;
+
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem;
+}
+
+.formMain .notesInput {
+    grid-column: 2/3;
+    grid-row: 1/4;
+
+    display: grid;
+}
+
+.formMain .dateInput, .formMain .priorityInput, .formMain .projectInput {
+    grid-column: 1/2;
+}
+
+.formMain .ctrl {
+    grid-column: 2/3;
+}
+
+/* PROJECT FORM */
+#projectDialog {
+    grid-template-columns: 1fr 1fr;
+    padding-right: 0.5rem;
+}
+
+#ProjectTitleInput {
+    grid-column: 1/3;
+}
+
+#addProj {
+    grid-column: 1/2;
+}
+
+#cancelProj {
+    grid-column: 2/3;
+}
+
+
+
+/* EDIT FORM */
+.editForm {
+    display: grid;
+    grid-template-columns: 3rem 1fr 1fr;
+    padding: 0.8rem;
+    background-color: #fcf4d9;
+}
+
+.priorityList {
+    display: grid;
+}
+
+.editCtrl {
+    grid-column: 2/4;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.nameEdit, .dateEdit, .projectEdit {
+    grid-column: 1/2;
+} 
+
+.noteEdit {
+    grid-column: 2/3;
+    grid-row: 1/3;
+}
+
+.editAction {
+    grid-column: 2/3;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.saveEdit {
+    background-color: #d55b3e;
+    color: #fcf4d9;
+}
+
+.delete {
+    background-color: #fcf4d9;
+    color: #d55b3e;
+}
+
+
+/* EDIT FORM - Checklist Highlight Color */
+button[role="checkbox"] {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 25%;
+    position: relative; /* Needed for positioning the pseudo-element */
+}
+
+button[role="checkbox"]::after {
+content: ''; /* No content initially */
+position: absolute;
+right: 20%;
+top: 50%;
+transform: translateY(-50%);
+font-size: 20px;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+button[role="checkbox"]:hover::after {
+content: '✓'; /* Unicode character for tick */
+opacity: 1; /* Make the tick visible */
+}
+
+.high {
+    border: 2px solid red;
+    color: red;
+    background-color: rgb(255, 0, 0, 0.1);
+}
+
+.med {
+    border: 2px solid orange;
+    color: orange;
+    background-color: rgb(255, 165, 0, 0.1);
+}
+
+.low {
+    border: 2px solid green;
+    color: green;
+    background-color: rgb(0, 128, 0, 0.1);
+}
+
+.nil {
+    border: 2px solid grey;
+    color: grey;
+    background-color: rgb(128, 128, 128, 0.1);
+}
+
+
+/* EDIT FORM - Checklist when editing */
+
+.priorityList input[type='radio'] {
+    appearance: none; /* Remove the default appearance */
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 25%;
+    display: inline-block;
+    position: relative;
+}
+
+/* Create a green dot when the radio button is checked */
+.priorityList input[type='radio']:checked::after {
+    content: '✓';
+    display: block;
+    font-size: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+.priorityList input[type='radio'].nil:checked::before {
+    background-color: grey;
+}
+
+.priorityList input[type='radio'].low:checked::before {
+    background-color: green;
+}
+.priorityList input[type='radio'].med:checked::before {
+    background-color: orange;
+}
+.priorityList input[type='radio'].high:checked::before {
+    background-color: red;
+}
