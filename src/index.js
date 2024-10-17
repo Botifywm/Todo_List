@@ -7,6 +7,7 @@ import { allTodos, createTodo } from "./todos";
 import { formatDate, startOfDay, startOfToday } from "date-fns";
 import { createEditForm, presetEditForm, removeActiveEdit } from "./editForm";
 import { countList } from "./taskCounter";
+import { webStorage } from "./storage";
 
 // PLACEHOLDER FOR FORM IN HTML
 const placeHolder = document.querySelector('#placeHolder')
@@ -33,6 +34,7 @@ const projectDialog = document.querySelector('#projectDialog');
 const ProjectTitleInput = document.querySelector('#ProjectTitleInput');
 const projectInputOption = document.querySelector('.projectInput');
 const cancelProject = document.querySelector('#cancelProj');
+const projectLabels = document.querySelector('.projectLabels');
 
 const renameProjForm = document.querySelector('.renameProjForm');
 
@@ -74,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         // FOR COUNTING LIST
         const track = countList().countTracker;
+        console.log("count")
         allCount.textContent = track.get('All');
         todayCount.textContent = track.get('Today');
         overdueCount.textContent = track.get('Overdue');
@@ -84,7 +87,8 @@ document.addEventListener('DOMContentLoaded', function(){
             projCount.textContent = track.get(allProjects[index]);
         })
     })
-    observerTwo.observe(todoList, {childList:true})
+    observerTwo.observe(todoList, {childList:true});
+    observerTwo.observe(projectLabels, {childList:true});
 })
 
 createTaskMenu.addEventListener('click', () => {
@@ -172,6 +176,7 @@ addTodoForm.addEventListener('submit', (e) => {
         }
         
     })
+
 })
 
 
@@ -204,6 +209,7 @@ projectDialog.addEventListener('submit', (e) => {
     placeHolder.appendChild(renameProjForm);
     createProjectFn();
     projectDialog.style.display = "none";
+    webStorage();
 })
 
 cancelProject.addEventListener('click', (e) => {

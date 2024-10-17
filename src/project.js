@@ -2,6 +2,7 @@ import { parseISO } from "date-fns";
 import { displayTask } from "./displayTask";
 import { displayTodos } from "./displayTodos";
 import { allTodos } from "./todos";
+import { webStorage } from "./storage";
 
 class Project {
     constructor(projectTitle, todoList = []) {
@@ -142,7 +143,8 @@ function projectLabelsFn() {
             deleteP(projName);
             dropDownProjectFn();
             projectLabel.remove();
-            displayTodos(allTodos, 'All');
+            displayTodos(displayTask, "All");
+            console.log(allTodos)
         })
 
         projectLabels.appendChild(projectLabel);

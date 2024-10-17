@@ -2,6 +2,7 @@ import { formatDate, startOfDay, startOfToday } from "date-fns";
 import { allProjects } from "./project";
 import { displayPage } from "./dynamicSwitch";
 import ShortUniqueId from 'short-unique-id';
+import { webStorage } from "./storage";
 
 
 class Todo {
@@ -33,6 +34,7 @@ function createTodo () {
     const newTodo = new Todo(titleInput, todoNotes, dueDate, priority, projectKey, checklist, uuid);
     allTodos.push(newTodo);
     const {header, map} = displayPage(dueDate, projectKey);
+    webStorage();
     
     return {titleInput, dueDate, priority, todoNotes, projectKey, uuid, header, map};
 }
